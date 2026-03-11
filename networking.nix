@@ -8,6 +8,7 @@
     "fail2ban_ignoreip" ={};
     "headscale_hostname" = {};
     "headscale_user" = {};
+    "headscale_ssh_key" = {};
   };
 
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
