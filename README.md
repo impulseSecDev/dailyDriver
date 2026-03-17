@@ -2,7 +2,7 @@
 
 > Primary NixOS workstation and homelab host. Runs all security monitoring VMs, ships logs to the SIEM, and serves as the local LLM interface — fully declarative and version-controlled.
 
-Part of the [Homelab Security Stack](https://github.com/impulseSecDev/homelab-security-stack).
+Part of the [Homelab Security Stack](https://github.com/impulseSecDev/NIX-HOMELAB-SECURITY-STACKk).
 
 ---
 
