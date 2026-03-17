@@ -101,6 +101,7 @@ Tailnet member → Tailscale → Nginx (HTTPS, Tailscale interface) → OpenWebU
 - Log shipping deliberately separated from admin traffic via dedicated WireGuard interface
 - sops-nix encrypted secrets — no plaintext credentials in version control
 - All VM traffic isolated within libvirt bridge network
+- Tailscale configured with ACL rules for limited ssh access by nodes with admin tags.
 
 ---
 
