@@ -198,7 +198,7 @@
 
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
-    age.keyFile = "/home/tim/.config/sops/age/keys.txt";
+    age.keyFile = "/var/lib/sops-nix/keys.txt";
   };  
 
   environment.shellAliases = {
