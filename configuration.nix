@@ -172,19 +172,23 @@
   nixpkgs.config.allowUnfree = true;
 
   # Fonts
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-color-emoji
-    liberation_ttf
-    fira
-    nerd-fonts.zed-mono
-    nerd-fonts.ubuntu-sans
-    nerd-fonts.ubuntu-mono
-    nerd-fonts.hack
-    nerd-fonts.victor-mono
-    nerd-fonts.jetbrains-mono
-  ];
+  fonts = {
+    fontconfig.enable = true; # prevents font cache corruption
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+      liberation_ttf
+      fira
+      nerd-fonts.zed-mono
+      nerd-fonts.ubuntu-sans
+      nerd-fonts.ubuntu-mono
+      nerd-fonts.hack
+      nerd-fonts.victor-mono
+      nerd-fonts.jetbrains-mono
+      dejavu_fonts #required for bottles
+    ];
+  };
 
   # Uncomment if Bluetooth needed
   # services.blueman.enable = true;
