@@ -36,11 +36,6 @@
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot"; # ← use the same mount point here.
     };
-    # grub = {
-    #   efiSupport = true;
-    #   #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-    #   device = "nodev";
-    # };
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -54,9 +49,6 @@
 
   boot.kernelParams = lib.mkForce [
     "amdgpu.ppfeaturemask=0xffffffff"
-    #extra options to prevent vr crashing
-    "vm.overcommit_memory=1"
-    "amdgpu.gpu_recovery=1"
   ];
 
   networking.hostName = "PlayWasHere"; # Define your hostname.
@@ -89,8 +81,6 @@
 
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-    options amdgpu gpu_recovery=1
-    options amdgpu lockup_timeout=10000
   '';
 
   security.polkit.enable = true;
