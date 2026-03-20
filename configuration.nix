@@ -205,8 +205,18 @@
     age.keyFile = "/var/lib/sops-nix/keys.txt";
   };  
 
-  environment.shellAliases = {
-    sops-edit = "sudo SOPS_AGE_KEY_FILE=/home/tim/.config/sops/age/keys.txt sops";
+  environment = {
+    shellAliases = {
+      sops-edit = "sudo SOPS_AGE_KEY_FILE=/home/tim/.config/sops/age/keys.txt sops";
+      vi = "nvim";
+      vim = "nvim";
+    };
+    variables = {
+      EDITOR = "nvim";
+      SUDO_EDITOR = "nvim";
+      VISUAL = "nvim";
+      SOPS_EDITOR = "vim";
+    };  
   };
   
   # Preserve installation stateVersion comments
