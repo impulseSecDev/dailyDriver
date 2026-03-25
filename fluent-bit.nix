@@ -67,11 +67,10 @@
   };
 
   systemd.services.fluent-bit = {
-    serviceConfig.SupplementaryGroups = [ "adm" ];
+    serviceConfig = {
+      SupplementaryGroups = [ "adm" ];
+      StateDirectory      = lib.mkForce "fluent-bit";
+      StateDirectoryMode  = "0750";
+    };
   };
-
-  # Prevents flunetbit from resending logs on system restart or crash
-  systemd.tmpfiles.rules = [
-    "d /var/lib/fluent-bit 0750 fluent-bit fluent-bit -"
-  ];
 }
