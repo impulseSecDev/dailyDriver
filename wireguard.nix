@@ -18,7 +18,7 @@ sops.templates."wg0.conf" = {
   content = ''
     [Interface]
     PrivateKey = ${config.sops.placeholder."wg0_private_key"}
-    Address = 10.10.10.4/32
+    Address = 10.10.10.4/24
 
     [Peer]
     # Elk
