@@ -167,6 +167,7 @@
     lxqt.lxqt-policykit
     polkit_gnome
     cloudflared
+    sops
   ];
 
   nixpkgs.config.allowUnfree = true;
