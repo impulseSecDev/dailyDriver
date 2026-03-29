@@ -32,6 +32,7 @@
           flush     1
           log_level info
           daemon    off
+          Parsers_File /etc/fluent-bit/parsers.conf
 
       [INPUT]
           name    systemd
