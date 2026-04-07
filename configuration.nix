@@ -168,6 +168,7 @@
     polkit_gnome
     cloudflared
     sops
+    zeek
   ];
 
   nixpkgs.config.allowUnfree = true;
