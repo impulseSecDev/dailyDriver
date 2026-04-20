@@ -8,6 +8,7 @@
       HSA_OVERRIDE_GFX_VWERSION = "10.3.0";
       OLLAMA_FLASH_ATTENTION="False";
       OLLAMA_KV_CACHE_TYPE="f16";
+      OLLAMA_KEEP_ALIVE = "900"; #model stays loaded onto gpu for 15 minutes.
     };
   };
 
