@@ -26,6 +26,23 @@
     end
   '';
 
+  environment.etc."fluent-bit/fail2ban-parse.lua".text = ''
+    function parse_fail2ban(tag, timestamp, record)
+      local msg = record["message"] or ""
+      local jail, action, ip = string.match(msg, "%[([^%]]+)%]%s+(%w+)%s+([%d%.]+)")
+      if jail then
+        record["jail"] = jail
+        record["action"] = action
+        record["src_ip"] = ip
+      end
+      local jail_only = string.match(msg, "%[([^%]]+)%]")
+      if jail_only and not jail then
+        record["jail"] = jail_only
+      end
+      return 1, timestamp, record
+    end
+  '';
+
   sops.templates."fluent-bit.conf" = {
     content = ''
       [SERVICE]
@@ -38,11 +55,39 @@
           name    systemd
           tag     dailydriver.journal
 
+      [INPUT]
+          name tail
+          path /var/log/*.log
+          tag  nixos.tail
+
+      [INPUT]
+          name              systemd
+          tag               dailydriver.fail2ban
+          systemd_filter    _SYSTEMD_UNIT=fail2ban.service
+          db                /var/lib/fluent-bit/fail2ban.db
+
+      [FILTER]
+          name   modify
+          match  *
+          remove SYSLOG_TIMESTAMP
+
       [FILTER]
           name    lua
           match   *.journal
           script  /etc/fluent-bit/tailscale-parse.lua
           call    parse_tailscale
+
+      [FILTER]
+          name   lua
+          match  dailydriver.fail2ban
+          script /etc/fluent-bit/fail2ban-parse.lua
+          call   parse_fail2ban
+
+      [FILTER]
+          name     record_modifier
+          match    dailydriver.*
+          Record   hostname playwashere
+          Record   source   dailydriver
 
       [OUTPUT]
           name               es
