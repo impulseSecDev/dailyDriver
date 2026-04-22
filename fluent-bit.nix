@@ -86,7 +86,7 @@
       [FILTER]
           name     record_modifier
           match    dailydriver.*
-          Record   hostname playwashere
+          Record   hostname PlayWasHere
           Record   source   dailydriver
 
       [OUTPUT]
