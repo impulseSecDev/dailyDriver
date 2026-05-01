@@ -11,7 +11,16 @@
     "headscale_ssh_key" = {};
   };
 
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+   networking = {
+     interfaces.enp1s0 = {
+       ipv4.addresses = [{
+         address = "192.168.1.153";
+         prefixLength = 16;
+       }];
+     };
+     defaultGateway = "192.168.1.1";
+     nameservers = [ "1.1.1.1" "8.8.8.8" ];
+   };
 
   # Enable the OpenSSH daemon.
   services.openssh = {
