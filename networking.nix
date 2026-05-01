@@ -15,7 +15,7 @@
      interfaces.enp1s0 = {
        ipv4.addresses = [{
          address = "192.168.1.153";
-         prefixLength = 16;
+         prefixLength = 24;
        }];
      };
      defaultGateway = "192.168.1.1";
