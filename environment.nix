@@ -19,7 +19,7 @@
         wayland.enable = true;
       };
        autoLogin = {
-         enable = true;
+         enable = false;
          user = "tim";
        };
       defaultSession = "none+i3";
@@ -57,14 +57,14 @@
     enable = true;
     xdgOpenUsePortal = true;
     config = {
-      common = {
-        default = [
-          "gtk"
-        ];
+      # Specifically tell Niri to use the GTK portal for most things
+      # but GNOME is often needed for the actual screencast backend.
+      niri = {
+        default = [ "gnome" "gtk" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # Prevents crashes if Nautilus isn't installed
       };
     };
     extraPortals = [
-      pkgs.kdePackages.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
     ];

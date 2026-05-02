@@ -10,16 +10,16 @@
     "headscale_user" = {};
     "headscale_ssh_key" = {};
   };
-#
+
   networking = {
-    interfaces.enp1s0 = {
+    interfaces.enp34s0 = {
       ipv4.addresses = [{
-        address = "192.168.1.153";
+        address = "192.168.1.155";
         prefixLength = 24;
       }];
     };
     defaultGateway = "192.168.1.1";
-    nameservers = [ "1.1.1.1" "8.8.8.8" ];
+    nameservers = [ "192.168.1.1" "1.1.1.1" "8.8.8.8" ];
   };
 
   # Enable the OpenSSH daemon.
@@ -47,7 +47,6 @@
     mode = "0600";  # ssh is strict about config file permissions
   };
 
-  # networking.firewall.enable = false;
 
   services.fail2ban = {
     enable = true;
