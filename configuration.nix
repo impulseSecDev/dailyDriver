@@ -169,6 +169,7 @@
     cloudflared
     sops
     zeek
+    foot
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -19,7 +19,7 @@
         wayland.enable = true;
       };
        autoLogin = {
-         enable = false;
+         enable = true;
          user = "tim";
        };
       defaultSession = "none+i3";
