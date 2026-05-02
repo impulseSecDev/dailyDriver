@@ -14,15 +14,10 @@
   # Enable Desktop Environment
   services = {
     displayManager = {
-      sddm = {
+      gdm = {
         enable = true;
         wayland.enable = true;
       };
-       autoLogin = {
-         enable = false;
-         user = "tim";
-       };
-      defaultSession = "none+i3";
     };
 
     xserver = {
