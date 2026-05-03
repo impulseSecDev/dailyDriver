@@ -59,6 +59,7 @@
           name tail
           path /var/log/*.log
           tag  nixos.tail
+          Read_From_Head off
           Buffer_Chunk_Size 1M
           Buffer_Max_Size 10M
           Refresh_Interval 10 
