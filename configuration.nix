@@ -49,6 +49,7 @@
 
   boot.kernelParams = lib.mkForce [
     "amdgpu.ppfeaturemask=0xffffffff"
+    "initcall_blacklist=simpledrm_platform_driver_init"
   ];
 
   networking.hostName = "PlayWasHere"; # Define your hostname.
@@ -67,6 +68,7 @@
   };
 
   boot.blacklistedKernelModules = [ "nvidia" ];
+
   boot.kernelModules = [
     "v4l2loopback"
   ];

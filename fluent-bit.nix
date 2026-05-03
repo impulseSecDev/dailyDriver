@@ -59,6 +59,10 @@
           name tail
           path /var/log/*.log
           tag  nixos.tail
+          Buffer_Chunk_Size 1M
+          Buffer_Max_Size 10M
+          Refresh_Interval 10 
+          Rotate_Wait 30
 
       [INPUT]
           name              systemd
