@@ -140,11 +140,11 @@
     };
   };  
 
-  services.jack = {
-    jackd.enable = true;
-    alsa.enable = false;
-    loopback.enable = true;
-  };
+  # services.jack = {
+  #   jackd.enable = true;
+  #   alsa.enable = false;
+  #   loopback.enable = true;
+  # };
 
   # Disable root password
   users.users.root.hashedPassword = "!";
@@ -172,6 +172,11 @@
     sops
     zeek
     foot
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "googleearth-pro-7.3.6.10201"
+    "electron-25.9.0"
   ];
 
   nixpkgs.config.allowUnfree = true;
