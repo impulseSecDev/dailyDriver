@@ -13,14 +13,8 @@
 
   # Enable Desktop Environment
   services = {
-    displayManager = {
-      gdm = {
-        enable = true;
-        wayland = true;
-      };
-    };
-
     xserver = {
+      displayManager.lightdm.enable = true;
       windowManager = {
         i3 = {
           enable = true;

@@ -175,7 +175,7 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "googleearth-pro-7.3.6.10201"
+    "googleearth-pro-7.3.7.1155"
     "electron-25.9.0"
   ];
 
