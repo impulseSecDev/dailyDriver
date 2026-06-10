@@ -19,6 +19,7 @@
       ./wazuh-agent.nix
       ./ai.nix
       ./nginx.nix
+      ./vr.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -176,7 +177,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "googleearth-pro-7.3.7.1155"
-    "electron-25.9.0"
+    "electron-39.8.10"
   ];
 
   nixpkgs.config.allowUnfree = true;
