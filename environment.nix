@@ -25,7 +25,7 @@
             autotiling
             polybar
             dunst
-            picom
+            #picom
           ];
         };
         # qtile = {

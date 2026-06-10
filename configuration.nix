@@ -19,7 +19,6 @@
       ./wazuh-agent.nix
       ./ai.nix
       ./nginx.nix
-      ./vr.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

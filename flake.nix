@@ -3,15 +3,13 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager"; # /release-26.05";
+      url = "github:nix-community/home-manager"; #/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -24,14 +22,13 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, sops-nix, nixpkgs-xr, home-manager, osc, ... }: {
+  outputs = inputs@{ nixpkgs, sops-nix, home-manager, osc, ... }: {
     nixosConfigurations.PlayWasHere = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
         sops-nix.nixosModules.sops
-        nixpkgs-xr.nixosModules.nixpkgs-xr
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
