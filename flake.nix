@@ -31,6 +31,7 @@
       modules = [
         ./configuration.nix
         sops-nix.nixosModules.sops
+        nixvim.nixosModules.nixvim 
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
