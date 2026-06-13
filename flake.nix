@@ -13,6 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim.url = "github:nix-community/nixvim";
+
     flake-utils.url = "github:numtide/flake-utils";
 
     osc = {
@@ -22,7 +24,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, sops-nix, home-manager, osc, ... }: {
+  outputs = inputs@{ nixpkgs, sops-nix, home-manager, nixvim, osc, ... }: {
     nixosConfigurations.PlayWasHere = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };

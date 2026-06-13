@@ -19,6 +19,7 @@
       ./wazuh-agent.nix
       ./ai.nix
       ./nginx.nix
+      ./neovim.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -78,8 +79,6 @@
     "vm.max_map_count" = 2147483642;
   };
 
- # Shorten reboot time by reducing process timeout
- systemd.user.extraConfig = ''DefaultTimeoutStopSec=10s'';
 
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
