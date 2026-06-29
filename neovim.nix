@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   programs.nixvim = {
     enable = true;
@@ -74,9 +74,9 @@
     ];
 
     # Installs the plugin binary package without executing the default Nixvim configuration wrapper
-    extraPlugins = with pkgs.vimPlugins; [
-      indent-blankline-nvim
-    ];
+    # extraPlugins = with pkgs.vimPlugins; [
+    #   indent-blankline-nvim
+    # ];
 
     plugins = {
       web-devicons.enable = true;
@@ -122,108 +122,108 @@
           incremental_selection.enable = true;
           indent.enable = true;
         };
-        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-          lua
-          nix
-          bash
-          json
-          yaml
-          markdown
-          python
-          javascript
-          typescript
-          html
-          css
-        ];
+        # grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+        #   lua
+        #   nix
+        #   bash
+        #   json
+        #   yaml
+        #   markdown
+        #   python
+        #   javascript
+        #   typescript
+        #   html
+        #   css
+        # ];
       };
 
       treesitter-textobjects.enable = true;
 
-      lsp = {
-        enable = true;
-        servers = {
-          nil_ls.enable = true;
-          lua_ls = {
-            enable = true;
-            settings.Lua.diagnostics.globals = [ "vim" ];
-          };
-          pyright.enable = true;
-          bashls.enable = true;
-          jsonls.enable = true;
-          marksman.enable = true;
-          ts_ls.enable = true;
-        };
-      };
+      # lsp = {
+      #   enable = true;
+      #   servers = {
+      #     nil_ls.enable = true;
+      #     lua_ls = {
+      #       enable = true;
+      #       settings.Lua.diagnostics.globals = [ "vim" ];
+      #     };
+      #     pyright.enable = true;
+      #     #bashls.enable = true;
+      #     jsonls.enable = true;
+      #     marksman.enable = true;
+      #     ts_ls.enable = true;
+      #   };
+      # };
 
-      cmp = {
-        enable = true;
-        settings = {
-          snippet.expand = ''
-            function(args)
-              require('luasnip').lsp_expand(args.body)
-            end
-          '';
-          window = {
-            completion.__raw = "require('cmp').config.window.bordered()";
-            documentation.__raw = "require('cmp').config.window.bordered()";
-          };
-          mapping = {
-            "<C-b>".__raw = "require('cmp').mapping.scroll_docs(-4)";
-            "<C-f>".__raw = "require('cmp').mapping.scroll_docs(4)";
-            "<C-Space>".__raw = "require('cmp').mapping.complete()";
-            "<C-e>".__raw = "require('cmp').mapping.abort()";
-            "<CR>".__raw = "require('cmp').mapping.confirm({ select = true })";
-            "<Tab>".__raw = ''
-              require('cmp').mapping(function(fallback)
-                local cmp = require('cmp')
-                local luasnip = require('luasnip')
-                if cmp.visible() then
-                  cmp.select_next_item()
-                elseif luasnip.expand_or_jumpable() then
-                  luasnip.expand_or_jump()
-                else
-                  fallback()
-                end
-              end, { 'i', 's' })
-            '';
-            "<S-Tab>".__raw = ''
-              require('cmp').mapping(function(fallback)
-                local cmp = require('cmp')
-                local luasnip = require('luasnip')
-                if cmp.visible() then
-                  cmp.select_prev_item()
-                elseif luasnip.jumpable(-1) then
-                  luasnip.jump(-1)
-                else
-                  fallback()
-                end
-              end, { 'i', 's' })
-            '';
-          };
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "nvim_lsp_signature_help"; }
-            { name = "luasnip"; }
-            { name = "buffer"; }
-            { name = "path"; }
-          ];
-        };
-      };
+      # cmp = {
+      #   enable = true;
+      #   settings = {
+      #     snippet.expand = ''
+      #       function(args)
+      #         require('luasnip').lsp_expand(args.body)
+      #       end
+      #     '';
+      #     window = {
+      #       completion.__raw = "require('cmp').config.window.bordered()";
+      #       documentation.__raw = "require('cmp').config.window.bordered()";
+      #     };
+      #     mapping = {
+      #       "<C-b>".__raw = "require('cmp').mapping.scroll_docs(-4)";
+      #       "<C-f>".__raw = "require('cmp').mapping.scroll_docs(4)";
+      #       "<C-Space>".__raw = "require('cmp').mapping.complete()";
+      #       "<C-e>".__raw = "require('cmp').mapping.abort()";
+      #       "<CR>".__raw = "require('cmp').mapping.confirm({ select = true })";
+      #       "<Tab>".__raw = ''
+      #         require('cmp').mapping(function(fallback)
+      #           local cmp = require('cmp')
+      #           local luasnip = require('luasnip')
+      #           if cmp.visible() then
+      #             cmp.select_next_item()
+      #           elseif luasnip.expand_or_jumpable() then
+      #             luasnip.expand_or_jump()
+      #           else
+      #             fallback()
+      #           end
+      #         end, { 'i', 's' })
+      #       '';
+      #       "<S-Tab>".__raw = ''
+      #         require('cmp').mapping(function(fallback)
+      #           local cmp = require('cmp')
+      #           local luasnip = require('luasnip')
+      #           if cmp.visible() then
+      #             cmp.select_prev_item()
+      #           elseif luasnip.jumpable(-1) then
+      #             luasnip.jump(-1)
+      #           else
+      #             fallback()
+      #           end
+      #         end, { 'i', 's' })
+      #       '';
+      #     };
+      #     sources = [
+      #       { name = "nvim_lsp"; }
+      #       { name = "nvim_lsp_signature_help"; }
+      #       { name = "luasnip"; }
+      #       { name = "buffer"; }
+      #       { name = "path"; }
+      #     ];
+      #   };
+      # };
 
-      cmp-nvim-lsp.enable = true;
-      cmp-buffer.enable = true;
-      cmp-path.enable = true;
-      cmp-cmdline.enable = true;
-      cmp-nvim-lsp-signature-help.enable = true;
-
-      lspkind = {
-        enable = true;
-        settings.cmp = {
-          max_width = 50;
-          ellipsis_char = "...";
-          menu = {};
-        };
-      };
+      # cmp-nvim-lsp.enable = true;
+      # cmp-buffer.enable = true;
+      # cmp-path.enable = true;
+      # cmp-cmdline.enable = true;
+      # cmp-nvim-lsp-signature-help.enable = true;
+      #
+      # lspkind = {
+      #   enable = true;
+      #   settings.cmp = {
+      #     max_width = 50;
+      #     ellipsis_char = "...";
+      #     menu = {};
+      #   };
+      # };
 
       luasnip = {
         enable = true;
