@@ -200,10 +200,12 @@
   };
 
   # Uncomment if Bluetooth needed
-  # services.blueman.enable = true;
-  # hardware.bluetooth.enable = true;
-  # hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
 
+  services.blueman.enable = true;
 
   fonts.fontDir.enable = true;
 
