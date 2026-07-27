@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.nixvim = {
     enable = true;
@@ -124,7 +124,7 @@
         };
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           lua
-          nix
+          #nix
           bash
           json
           yaml
@@ -142,13 +142,13 @@
       lsp = {
         enable = true;
         servers = {
-          nil_ls.enable = true;
+        nil_ls.enable = true;
           lua_ls = {
             enable = true;
             settings.Lua.diagnostics.globals = [ "vim" ];
           };
           pyright.enable = true;
-          #bashls.enable = true;
+          bashls.enable = true;
           jsonls.enable = true;
           marksman.enable = true;
           ts_ls.enable = true;
@@ -269,4 +269,5 @@
     '';
   };
 }
+
 
