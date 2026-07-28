@@ -22,7 +22,7 @@
       DO_NOT_TRACK = "True";
       WEBUI_AUTH = "True";
       TF_FORCE_GPU_ALLOW_GROWTH = "True";
-      CUDA_VISIBLE_DEVICES = "0";
+      #CUDA_VISIBLE_DEVICES = "0";
     };
   };
 }
