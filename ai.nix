@@ -23,6 +23,9 @@
       WEBUI_AUTH = "True";
       TF_FORCE_GPU_ALLOW_GROWTH = "True";
       #CUDA_VISIBLE_DEVICES = "0";
+      FRONTEND_BUILD_DIR = "/var/lib/open-webui/build";
+      DATA_DIR = "/var/lib/open-webui/data";
+      STATIC_DIR = "/var/lib/open-webui/static";
     };
   };
 }

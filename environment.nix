@@ -28,12 +28,6 @@
             #picom
           ];
         };
-        # qtile = {
-        #   enable = true;
-        #   extraPackages = python3Packages: with python3Packages; [
-        #     qtile-extras
-        #   ];
-        # };
       };  
     };
   };  
@@ -53,6 +47,7 @@
         "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ]; # Prevents crashes if Nautilus isn't installed
       };
     };
+
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
