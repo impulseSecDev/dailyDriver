@@ -8,7 +8,7 @@
   
   services.teamviewer.enable = true;
 
-  #services.lact.enable = true;
+  services.lact.enable = true;
 
   services.flatpak.enable = true;
 
