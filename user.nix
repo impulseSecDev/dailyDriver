@@ -8,7 +8,7 @@
   users.users.tim = {
     hashedPasswordFile = config.sops.secrets."user_password".path;
     isNormalUser = true;
-    extraGroups = [ "wheel" "wireshark" "docker" "vboxusers" "libvirtd" "games" "gamemode" "video" "jackaudio" "kvm" "corectrl" "lact" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "wireshark" "docker" "vboxusers" "libvirtd" "games" "gamemode" "video" "jackaudio" "kvm" "corectrl" "lact" "networkmanager" "plugdev" "udev" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
     ];
   };

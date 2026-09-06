@@ -103,6 +103,19 @@
   services.xserver.xkb.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
+#Enabled for via
+  hardware.keyboard.qmk.enable = true;
+  services.udev.packages = with pkgs; [ 
+    qmk
+    qmk-udev-rules # the only relevant
+    qmk_hid
+    via
+    vial
+  ];
+  # services.udev.extraRules = ''
+  #   KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", ATTRS{idVendor}=="320f", ATTRS{idProduct}=="5044", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl" 
+  # '';
+
   # Enable sound and Pipewire
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -171,6 +184,9 @@
     sops
     zeek
     foot
+    via
+    qmk
+    qmk-udev-rules
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
