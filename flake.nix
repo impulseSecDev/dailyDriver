@@ -17,14 +17,23 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    osc = {
-      url = "path:/home/tim/OSC";
+    # osc = {
+    #   url = "path:/home/tim/OSC";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+
+      # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
   };
 
-  outputs = inputs@{ nixpkgs, sops-nix, home-manager, nixvim, osc, ... }: {
+  outputs = inputs@{ nixpkgs, sops-nix, home-manager, nixvim, lanzaboote, disko, ... }: {
     nixosConfigurations.PlayWasHere = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -32,12 +41,16 @@
         ./configuration.nix
         sops-nix.nixosModules.sops
         nixvim.nixosModules.nixvim 
+        sops-nix.nixosModules.sops
+        disko.nixosModules.disko
+        lanzaboote.nixosModules.lanzaboote
+        ./disko-config.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.tim = import ./home.nix;
-          home-manager.extraSpecialArgs = { inherit osc; };
+          #home-manager.extraSpecialArgs = { inherit osc; };
         }
       ];
     };
