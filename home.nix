@@ -1,4 +1,4 @@
-{ config, pkgs, lib, osc, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -167,7 +167,7 @@ home.sessionVariables = {
     mousam
     mpv
     nautilus
-    osc.packages.${pkgs.system}.default
+    #osc.packages.${pkgs.system}.default
     obsidian
     pdfarranger
     postman
