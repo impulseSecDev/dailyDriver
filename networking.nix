@@ -24,10 +24,10 @@
 
   # Enable the OpenSSH daemon.
   services.openssh = {
-    enable = true;
+    enable = false;
     settings = {
-      PasswordAuthentication = true;
-      PubkeyAuthentication = true;
+      PasswordAuthentication = false;
+      PubkeyAuthentication = false;
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "no"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
