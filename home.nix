@@ -9,7 +9,7 @@
 
   home.username = "tim";
   home.homeDirectory = "/home/tim";
-  home.stateVersion = "25.05";
+  home.stateVersion = "26.05";
 
   home.pointerCursor = {
     enable = true;
@@ -171,6 +171,7 @@ home.sessionVariables = {
     obsidian
     pdfarranger
     postman
+    protonup-qt
     pulseaudio
     ranger
     satty #image editor used with screenshot tool

@@ -28,12 +28,12 @@
   boot.lanzaboote = {
     enable = true;
     pkiBundle = "/var/lib/sbctl";
-    # autoGenerateKeys.enable = true;
-    # autoEnrollKeys = {
-    #   enable = true;
-    #   # Automatically reboot to enroll the keys in the firmware
-    #   autoReboot = true;
-    # };
+    autoGenerateKeys.enable = true;
+    autoEnrollKeys = {
+      enable = true;
+      # Automatically reboot to enroll the keys in the firmware
+      autoReboot = true;
+    };
   };
   
   nix.settings = {
@@ -58,10 +58,13 @@
   ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.systemd.enable = true;
+  hardware.amdgpu.initrd.enable = true;
+  hardware.enableRedistributableFirmware = true;
+
 
   boot.kernelParams = lib.mkForce [
     "amdgpu.ppfeaturemask=0xffffffff"
-    "initcall_blacklist=simpledrm_platform_driver_init"
   ];
 
   networking.hostName = "PlayWasHere"; # Define your hostname.
@@ -198,6 +201,7 @@
     via
     qmk
     qmk-udev-rules
+    tpm2-tss
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
