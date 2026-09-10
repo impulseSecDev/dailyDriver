@@ -15,14 +15,12 @@
     acceptTerms = true;
     defaults = {
       email = "placeholder@mesh.com"; 
-      # environmentFile is no longer strictly needed if using credentialFiles
     };
     certs = {
       "mesh.loranjennings.com" = {
         domain = "*.mesh.loranjennings.com";
         dnsProvider = "cloudflare";
         
-        # FIX: Use an attribute set with the _FILE suffix
         credentialFiles = {
           "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.sops.secrets."cloudflare_api_token".path;
         };
@@ -38,7 +36,7 @@
       useACMEHost = "mesh.loranjennings.com";
       forceSSL = true;
       # Tailscale interface binding looks good
-      listen = [ { addr = "100.64.0.1"; port = 443; ssl = true; } ];
+      listen = [ { addr = "100.64.0.9"; port = 443; ssl = true; } ];
 
       locations."/" = {
         proxyPass = "http://127.0.0.1:8080";

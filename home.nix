@@ -98,9 +98,11 @@ home.sessionVariables = {
     brightnessctl
     dunst
     fuzzel # fzf app picker for wayland
-    gradia # screenshot tool
+    grim
     nwg-drawer
     rofi
+    satty
+    slurp
     swaybg
     swaybg
     waybar
@@ -111,6 +113,7 @@ home.sessionVariables = {
     # --- WEB BROWSERS & INTERNET TOOLS ---
     brave
     chromium
+    discord
     firefox
     tor-browser
     vivaldi
@@ -159,7 +162,6 @@ home.sessionVariables = {
     gh
     gnome-pomodoro
     gnome-software
-    grim #screenshot tool
     impression
     keepass
     libreoffice-fresh
@@ -174,9 +176,7 @@ home.sessionVariables = {
     protonup-qt
     pulseaudio
     ranger
-    satty #image editor used with screenshot tool
     shotwell
-    slurp # used with screenshot tool
     teams-for-linux
     thunderbird
     vlc

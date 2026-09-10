@@ -8,7 +8,6 @@
     "fail2ban_ignoreip" ={};
     "headscale_hostname" = {};
     "headscale_user" = {};
-    "headscale_ssh_key" = {};
   };
 
   networking = {
