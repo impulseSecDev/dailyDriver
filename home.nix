@@ -33,9 +33,13 @@ home.sessionVariables = {
   #===============================================================
   programs.qutebrowser = {
     enable = true;
+    package = pkgs.qutebrowser.override {
+      enableWideVine = true;
+    };
     settings = {
       fonts.hints = "bold 25pt monospace";
       content.blocking.method = "both";
+      window.hide_decoration = true;
       auto_save.session = true;
     };
     keyBindings = {

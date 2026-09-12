@@ -43,12 +43,6 @@
     ];
   };
 
-  # boot.loader = {
-  #   efi = {
-  #     canTouchEfiVariables = true;
-  #     efiSysMountPoint = "/boot"; # ← use the same mount point here.
-  #   };
-  # };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -66,6 +60,16 @@
   boot.kernelParams = lib.mkForce [
     "amdgpu.ppfeaturemask=0xffffffff"
   ];
+
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 8 * 1024;
+  }];
+
+  services.fstrim = {
+    enable = true;
+    interval = "daily";
+  };
 
   networking.hostName = "PlayWasHere"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -270,4 +274,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
 }
+
 
