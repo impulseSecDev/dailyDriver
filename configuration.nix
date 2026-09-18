@@ -68,7 +68,7 @@
 
   services.fstrim = {
     enable = true;
-    interval = "daily";
+    interval = "weekly";
   };
 
   networking.hostName = "PlayWasHere"; # Define your hostname.
@@ -184,7 +184,7 @@
     wget
     pavucontrol
     networkmanagerapplet
-    btop
+    btop-rocm
     gitFull
     usbutils
     coreutils-full
