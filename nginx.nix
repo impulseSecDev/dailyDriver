@@ -36,7 +36,7 @@
       useACMEHost = "mesh.loranjennings.com";
       forceSSL = true;
       # Tailscale interface binding looks good
-      listen = [ { addr = "100.64.0.9"; port = 443; ssl = true; } ];
+      listen = [ { addr = "100.64.0.5"; port = 443; ssl = true; } ];
 
       locations."/" = {
         proxyPass = "http://127.0.0.1:8080";

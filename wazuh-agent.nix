@@ -24,6 +24,12 @@
     containers.wazuh-agent = {
       image = "wazuh/wazuh-agent:4.14.3";
       environmentFiles = [ config.sops.templates."wazuh-agent.env".path ];
+      # Mount or persistent agent registration - Using named volume instead of shared
+      volumes = [
+        "wazuh-agent-etc:/var/ossec/etc"
+        "wazuh-agent-queue:/var/ossec/queue"
+        "wazuh-agent-logs:/var/ossec/logs"
+      ];
       extraOptions = [
         "--network=host"
         "--cap-add=SYS_PTRACE"

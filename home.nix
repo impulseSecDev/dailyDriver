@@ -123,6 +123,7 @@ home.sessionVariables = {
     vivaldi
 
     # --- SYSTEM ADMINISTRATION, HARDWARE MONITORING & DISK MANAGEMENT ---
+    ansible
     cpuset
     dnsmasq
     exfatprogs
@@ -139,6 +140,7 @@ home.sessionVariables = {
     proton-vpn
     qemu
     radeontop
+    rpi-imager
     stress-ng
     tlrc
     wireguard-tools

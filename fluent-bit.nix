@@ -119,7 +119,7 @@
 
   systemd.services.fluent-bit = {
     serviceConfig = {
-      SupplementaryGroups = [ "adm" ];
+      SupplementaryGroups = [ "adm" "nginx" ];
       StateDirectory      = lib.mkForce "fluent-bit";
       StateDirectoryMode  = "0750";
     };

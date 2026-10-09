@@ -253,7 +253,7 @@
 
   environment = {
     shellAliases = {
-      sops-edit = "sudo SOPS_AGE_KEY_FILE=/home/tim/.config/sops/age/keys.txt sops";
+      sops-edit = "sudo SOPS_AGE_KEY_FILE=/var/lib/sops-nix/keys.txt sops";
       vi = "nvim";
       vim = "nvim";
     };
@@ -264,6 +264,8 @@
       SOPS_EDITOR = "vim";
     };  
   };
+
+  nix.settings.trusted-users = [ "root" "tim" ];
   
   # Preserve installation stateVersion comments
   # This value determines the NixOS release from which the default

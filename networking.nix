@@ -37,7 +37,7 @@
     content = ''
       Host headscale
         Hostname ${config.sops.placeholder."headscale_hostname"}
-        IdentityFile ~/.ssh/ssh_keys/headscale
+        IdentityFile ~/.ssh/headscale
         user ${config.sops.placeholder."headscale_user"}
         CheckHostIP yes
     '';
