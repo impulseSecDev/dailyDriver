@@ -148,6 +148,7 @@ home.sessionVariables = {
 
     # --- VIRTUALIZATION, CONTAINERS & GAMING ---
     bs-manager
+    cisco-packet-tracer_9
     distrobox
     furmark
     intiface-central
@@ -175,8 +176,8 @@ home.sessionVariables = {
     mousam
     mpv
     nautilus
-    #osc.packages.${pkgs.system}.default
     obsidian
+    orca-slicer
     pdfarranger
     postman
     protonup-qt

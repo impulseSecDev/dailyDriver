@@ -50,7 +50,6 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
-
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.initrd.systemd.enable = true;
   hardware.amdgpu.initrd.enable = true;
@@ -59,6 +58,7 @@
 
   boot.kernelParams = lib.mkForce [
     "amdgpu.ppfeaturemask=0xffffffff"
+    "usbcore.autosuspend=-1"
   ];
 
   swapDevices = [{
