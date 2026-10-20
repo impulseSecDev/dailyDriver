@@ -12,6 +12,10 @@
 
   services.flatpak.enable = true;
 
+  # System-wide GVfs service required for Nautilus network features
+  services.gvfs.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
   services.hardware.openrgb = { 
     enable = true; 
     package = pkgs.openrgb-with-all-plugins; 

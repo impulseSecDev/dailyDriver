@@ -18,6 +18,8 @@
         export PRESSURE_VESSEL_IMPORT_OPENXR_1_RUNTIMES=1
         # Fixes timezones on VRC
         unset TZ
+        # Wayland/Niri WM Fix
+        QT_QPA_PLATFORM = "xcb"
       '';
     };
   };

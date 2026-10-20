@@ -55,6 +55,8 @@ home.sessionVariables = {
   #SERVICES
   #==================================================================================
 
+
+
   #======================================================================================
   #PACKAGES
   #======================================================================================
@@ -170,12 +172,12 @@ home.sessionVariables = {
     gnome-pomodoro
     gnome-software
     impression
-    keepass
-    libreoffice-fresh
     mediawriter
     mousam
     mpv
     nautilus
+    gvfs  # Network backends for GIO/Nautilus (davs://, smb://)
+    glib  # Provides the `gio` command-line tool
     obsidian
     orca-slicer
     pdfarranger
