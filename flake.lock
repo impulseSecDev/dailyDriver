@@ -157,6 +157,23 @@
         "type": "github"
       }
     },
+    "llama-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789891691,
+        "narHash": "sha256-SRGoXa+4ACBCB3eaG9XFYhMN1i0FyPEy9Rrer+dFGYI=",
+        "owner": "ggml-org",
+        "repo": "llama.cpp",
+        "rev": "3cf03257f219afbe7334045ff7c6a06ac68c627d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ggml-org",
+        "repo": "llama.cpp",
+        "rev": "3cf03257f219afbe7334045ff7c6a06ac68c627d",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1792898606,
@@ -238,9 +255,11 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
+        "llama-src": "llama-src",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "strata-src": "strata-src"
       }
     },
     "rust-overlay": {
@@ -281,6 +300,22 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "strata-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793413381,
+        "narHash": "sha256-eFuyhZQQNoskUXGB/RkaPvBslg16PZjCS3c8xyl4oZk=",
+        "owner": "Niko1221",
+        "repo": "Strata",
+        "rev": "c62d5e3a15b40ea51c96aae9e8d36928965f53ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Niko1221",
+        "repo": "Strata",
         "type": "github"
       }
     },

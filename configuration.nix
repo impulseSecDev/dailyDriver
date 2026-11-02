@@ -19,7 +19,6 @@
       ./ai.nix
       ./nginx.nix
       ./neovim.nix
-      ./strata.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
