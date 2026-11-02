@@ -2,9 +2,7 @@
 
 {
   imports = [
-    #./neovim.nix
     ./vrc-status.nix
-    #./monado.nix
   ];
 
   home.username = "tim";
@@ -88,11 +86,11 @@ home.sessionVariables = {
     bash-language-server
     devbox
     godot
+    llama-cpp
     lua-language-server
     marksman
     nil
     nodejs
-    opencode
     pyright
     stylua
     typescript-language-server

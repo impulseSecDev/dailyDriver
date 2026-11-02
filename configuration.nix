@@ -19,6 +19,7 @@
       ./ai.nix
       ./nginx.nix
       ./neovim.nix
+      ./strata.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -51,7 +52,7 @@
     v4l2loopback
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.initrd.systemd.enable = true;
+  # no longer any effect on unstable channel boot.initrd.systemd.enable = true;
   hardware.amdgpu.initrd.enable = true;
   hardware.enableRedistributableFirmware = true;
 

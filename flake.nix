@@ -17,12 +17,6 @@
 
     flake-utils.url = "github:numtide/flake-utils";
 
-    # osc = {
-    #   url = "path:/home/tim/OSC";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-utils.follows = "flake-utils";
-    # };
-
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote = {
@@ -30,6 +24,13 @@
 
       # Optional but recommended to limit the size of your system closure.
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    strata-src = { url = "github:Niko1221/Strata"; flake = false; };
+    # Must be the exact commit Strata pins (check CMakeLists.txt / setup.py LLAMA_CPP_COMMIT)
+    llama-src = {
+      url = "github:ggml-org/llama.cpp/3cf03257f219afbe7334045ff7c6a06ac68c627d";
+      flake = false;
     };
   };
 
