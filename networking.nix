@@ -12,10 +12,7 @@
 
   networking = {
     interfaces.enp34s0 = {
-      ipv4.addresses = [{
-        address = "192.168.1.155";
-        prefixLength = 24;
-      }];
+      useDHCP = true;
     };
     defaultGateway = "192.168.1.1";
     nameservers = [ "192.168.1.1" "1.1.1.1" "8.8.8.8" ];
