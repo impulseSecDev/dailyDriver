@@ -35,7 +35,6 @@
 
   services.tailscale = {
     enable = true;
-    useRoutingFeatures = "server";
   };
 
   services.rustdesk-server = {

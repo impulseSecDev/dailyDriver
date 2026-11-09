@@ -132,6 +132,7 @@ home.sessionVariables = {
     gnome-disk-utility
     gparted
     guestfs-tools
+    ipcalc
     libguestfs
     liquidctl
     nvtopPackages.amd

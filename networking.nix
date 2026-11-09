@@ -14,7 +14,6 @@
     interfaces.enp34s0 = {
       useDHCP = true;
     };
-    defaultGateway = "192.168.1.1";
     nameservers = [ "192.168.1.1" "1.1.1.1" "8.8.8.8" ];
   };
 
