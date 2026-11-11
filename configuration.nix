@@ -209,8 +209,8 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "googleearth-pro-7.3.7.1155"
     "electron-39.8.10"
+    "qutebrowser-3.7.0"
   ];
 
   nixpkgs.config.allowUnfree = true;
