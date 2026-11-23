@@ -97,6 +97,12 @@ home.sessionVariables = {
     via #keyboard configuration
     web-ext # manage & sign browser extensions
 
+    # --- Hyprland UTILITIES
+    hypridle
+    hyprlock
+    hyprpaper
+    hyprpicker
+
     # --- WAYLAND ENVIRONMENT, WINDOW MANAGEMENT & RICE UTILITIES ---
     awww
     brightnessctl
