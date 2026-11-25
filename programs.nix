@@ -63,4 +63,12 @@
     enable = true;
     lfs.enable = true;
   };
+
+  programs.firefox = {
+    enable = true;
+    policies.DNSOverHTTPS = {
+      Enabled = true;
+      ExcludedDomains = [ "mesh.loranjennings.com" ];
+    };
+  };
 }

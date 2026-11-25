@@ -14,7 +14,7 @@
   security.acme = {
     acceptTerms = true;
     defaults = {
-      email = "placeholder@mesh.com"; 
+      email = "placeholder@mesh.com";
     };
     certs = {
       "mesh.loranjennings.com" = {
@@ -30,6 +30,8 @@
 
   services.nginx = {
     enable = true;
+    recommendedProxySettings = true; # Sets Host and X-Forwarded-* on every proxied location
+
     virtualHosts = {
       # Default Fallback for HTTP (Port 80)
       "default-http-fallback" = {
@@ -55,24 +57,38 @@
       };
 
       "gpt.mesh.loranjennings.com" = {
-        # Must match the string key in security.acme.certs above
         useACMEHost = "mesh.loranjennings.com";
-        forceSSL = true;
+        onlySSL = true; 
+        http2 = false;  # Prevents HTTP/2 + Tailscale MTU stalls on Socket.IO / SSE streams
         listen = [ { addr = "100.64.0.5"; port = 443; ssl = true; } ];
         locations."/" = {
           proxyPass = "http://127.0.0.1:8080";
           proxyWebsockets = true;
+          extraConfig = ''
+            proxy_buffering off;
+            proxy_cache off;
+            proxy_request_buffering off;
+            proxy_read_timeout 600s;
+            proxy_send_timeout 600s;
+            proxy_connect_timeout 600s;
+            client_max_body_size 50M;
+          '';
         };
       };
 
       "llama.mesh.loranjennings.com" = {
         useACMEHost = "mesh.loranjennings.com";
-	      forceSSL = true;
-	      listen = [ { addr = "100.64.0.5"; port = 443; ssl = true; } ];
-	      locations = {
-          "/" = {
-            proxyPass = "http://127.1.0.1:8080";
-          };
+        onlySSL = true;
+        http2 = false;
+        listen = [ { addr = "100.64.0.5"; port = 443; ssl = true; } ];
+        locations."/" = {
+          proxyPass = "http://127.1.0.1:8080";
+          proxyWebsockets = true;
+          extraConfig = ''
+            proxy_buffering off;
+            proxy_read_timeout 600s;
+            proxy_send_timeout 600s;
+          '';
         };
       };
     };

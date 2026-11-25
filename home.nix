@@ -124,7 +124,6 @@ home.sessionVariables = {
     brave
     chromium
     discord
-    firefox
     tor-browser
     vivaldi
 
